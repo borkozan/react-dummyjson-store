@@ -1,14 +1,15 @@
 import './App.css'
+import { Routes, Route } from "react-router-dom";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
-
   return (
     <>
-      <div>
-        <h1>React DummyJSON Store</h1>
-      </div>
+      <Routes>
+        <Route path="/" element={<ProductsPage />} />
+      </Routes>
     </>
   )
 }
 
-export default App
+export default App;
