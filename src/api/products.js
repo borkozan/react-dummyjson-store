@@ -1,13 +1,13 @@
-export async function fetchProducts(search="") {
-  let url;
+export async function fetchProducts(search, limit=20, skip=0) {
+  const url = "https://dummyjson.com/products";
+  const params = new URLSearchParams();
   if (search) {
     console.log("search: " + search);
-    url = "https://dummyjson.com/products/search?q=" + search;
-  } else {
-    url = "https://dummyjson.com/products?limit=20";
-    console.log("url: " + url);
+    params.append("q", search);
   }
-  const response = await fetch(url);
+  params.append("limit", limit);
+  params.append("skip", skip);
+  const response = await fetch(`${url}/search?${params.toString()}`);
   
   if (!response.ok) {
     throw new Error("Failed to fetch products");
