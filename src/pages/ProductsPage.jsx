@@ -21,7 +21,10 @@ export default function ProductsPage() {
       {isLoading && <p>Loading products...</p>}
       {error && <p>Error loading products</p>}
       {isFetching && <p>Updating results...</p>}
-      {data && !error && (
+      {data && data.products.length === 0 && (
+        <p>No products found. Try a different search.</p>
+      )}
+      {data && !error && data.products.length > 0 && (
         <ul>
           {data.products.map((p) => (
             <li key={p.id}>
