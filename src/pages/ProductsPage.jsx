@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../api/products";
-import { useState} from "react";
+import { useState } from "react";
+import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
 
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
@@ -16,7 +17,7 @@ export default function ProductsPage() {
   return(
     <div>
       <h2>Products</h2>
-      <input type="text" placeholder="Search products..." value={search} onChange={(e) => {setSearch(e.target.value); setPage(1)}} style={{marginBottom: "10px", padding: "5px", width: "300px" }}/>
+      <SearchBar value={search} onChange={(e) => {setSearch(e.target.value);setPage(1)}} />
       {isLoading && <p>Loading products...</p>}
       {error && <p>Error loading products</p>}
       {isFetching && <p>Updating results...</p>}
@@ -24,7 +25,7 @@ export default function ProductsPage() {
         <ul>
           {data.products.map((p) => (
             <li key={p.id}>
-              <Link to={`/products/${p.id}`}>{p.title}</Link>
+              <ProductCard product={p} />
             </li>
           ))}
         </ul>
