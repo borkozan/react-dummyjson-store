@@ -3,6 +3,7 @@ import { fetchProducts } from "../api/products";
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
+import "../styles/global.css"
 
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
@@ -15,7 +16,7 @@ export default function ProductsPage() {
     keepPreviousData: true,
   });
   return(
-    <div>
+    <div className="page">
       <h2>Products</h2>
       <SearchBar value={search} onChange={(e) => {setSearch(e.target.value);setPage(1)}} />
       {isLoading && <p>Loading products...</p>}
@@ -25,9 +26,9 @@ export default function ProductsPage() {
         <p>No products found. Try a different search.</p>
       )}
       {data && !error && data.products.length > 0 && (
-        <ul>
+        <ul className="product-grid">
           {data.products.map((p) => (
-            <li key={p.id}>
+            <li key={p.id} className="product-grid-item">
               <ProductCard product={p} />
             </li>
           ))}
