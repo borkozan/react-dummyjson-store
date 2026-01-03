@@ -67,3 +67,26 @@ body {
     font-weight: 600;
     color: #2563eb;
 }
+.search-feedback { 
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95rem;
+    background-color: #353535;
+}
+.search-feedback-loading {
+    color: #8ee727;
+}
+  
+.search-feedback-updating {
+    color: #d89b18;
+}
+  
+.search-feedback-error {
+    color: #b91c1c;
+}
+  
+.search-feedback-empty {
+    color: #7b8fb8;
+}

@@ -3,6 +3,7 @@ import { fetchProducts } from "../api/products";
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
+import SearchFeedback from "../components/SearchFeedback";
 import "../styles/global.css"
 
 export default function ProductsPage() {
@@ -19,12 +20,10 @@ export default function ProductsPage() {
     <div className="page">
       <h2>Products</h2>
       <SearchBar value={search} onChange={(e) => {setSearch(e.target.value);setPage(1)}} />
-      {isLoading && <p>Loading products...</p>}
-      {error && <p>Error loading products</p>}
-      {isFetching && <p>Updating results...</p>}
-      {data && data.products.length === 0 && (
-        <p>No products found. Try a different search.</p>
-      )}
+      {isLoading && <SearchFeedback type="loading" message="Loading products..."/>}
+      {error && <SearchFeedback type="error" message="Error loading products."/>}
+      {isFetching && <SearchFeedback type="updating" message="Updating products..."/>}
+      {data && data.products.length === 0 && (<SearchFeedback type="empty" message="No products found. Try a different search."/>)}
       {data && !error && data.products.length > 0 && (
         <ul className="product-grid">
           {data.products.map((p) => (
