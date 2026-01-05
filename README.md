@@ -1,16 +1,55 @@
-# React + Vite
+# Product Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based product listing application demonstrating modern frontend patterns such as server-state management, pagination, skeleton loaders, and reusable UI components.
 
-Currently, two official plugins are available:
+The app consumes the DummyJSON API and focuses on clean architecture and user experience rather than visual design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Product listing with responsive grid layout
+- Search with server-side filtering
+- Pagination with React Query caching
+- Skeleton loaders for initial loading state
+- Unified feedback component for loading, error, and empty states
+- Reusable and composable UI components
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- React Query (TanStack Query)
+- JavaScript
+- CSS (Grid & Flexbox)
+- DummyJSON API
+
+---
+
+## Architecture Notes
+
+- Server state is handled with React Query
+- UI components are separated from orchestration logic
+- Page components manage state and data fetching
+- Reusable components are kept intentionally dumb
+- Layout is responsive without media queries using CSS Grid
+
+---
+
+## Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+npm install
+```
+
+## Start the development server
+
+```bash
+npm run dev
+```
+
