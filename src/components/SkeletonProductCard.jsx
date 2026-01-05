@@ -1,0 +1,9 @@
+export default function SkeletonProductCard() {
+    return (
+      <div className="product-card skeleton">
+        <div className="skeleton-image" />
+        <div className="skeleton-title" />
+        <div className="skeleton-price" />
+      </div>
+    );
+  }

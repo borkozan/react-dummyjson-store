@@ -15,9 +15,9 @@ export default function ProductDetailPage() {
         <h2>{data.title}</h2>
         <img src={data.thumbnail} alt={data.title} width="300" />
         <p>{data.description}</p>
-        <p>Price: 
+        <p>Price:  
             <strong>
-                {data.price}
+                {data.price} USD
             </strong>
         </p>
         <p>Brand: {data.brand}</p>
